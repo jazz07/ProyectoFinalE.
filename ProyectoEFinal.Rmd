@@ -89,6 +89,6 @@ Prueba de Anova para esta pregunta y grafico plot.
 
 ## pregunta 8. Influye el nivel de educación con respecto a si una persona lee o no?.
 
-## Pregunta 9. Si los hombres leen mas el periodico que las mujeres. Existe difernecia?
+## Pregunta 9. Los hombres leen mas el periodico que las mujeres?. Existe difernecia?
 
 ¿segun el nivel educativo las personas aumentan la cantidad de libros leidos durante todo el año?
