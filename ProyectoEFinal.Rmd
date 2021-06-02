@@ -41,14 +41,34 @@ t.test(lectura$How.many.books.did.you.read.during.last.12months.~lectura$Sex, al
 ```
 ## pregunta 2
 ¿La edad influye en la cantidad de libros leidos durante todo el año?
+
+Ho. no es relevante por que dependerá más de factores como el tiempo. 
+H1. si es relevante por que en base la edad se va incrementando la cantidad de libros leídos.
+
 ## pregunta 3
 ¿Una persona con empleo lee más que una desempleada?
+
+Ho. Si por que por razones laborales puede incrementar su lista de libros leídos.
+H1. no por que depende mas del tiempo que la persona tenga.
+
 ## pregunta 4
 ¿Los ingresos son factor importante en el consumo de libros?
+
+Ho. Si puesto que no se pueden adquirir todos los libros deseados sin tener ingresos suficientes.
+H1. No ya que podemos consumir libros de manera digital o bien libros en otras fuentes.
+
 ## pregunta 5
 ¿Los audio libros son frecuentados por jovenes o personas mayores?
+
+Ho. Por ambos de una manera equitativa.
+H1. Por facilidad de uso y manejo asi que por personas mayores.
+
 ## pregunta 6
 ¿Las personas prefieren el periodico y el diario o libros electronicos?
+
+Ho. Por falta de actualización las personas prefieren el periodico de manera física.
+H1. Por facil manejo y uso los libros electronicos.
+
 ## pregunta 7. Existe alguna diferencia entre los libros leidos de los casados con los solteros, y los divorciados?
 Prueba de Anova para esta pregunta y grafico plot.
 
