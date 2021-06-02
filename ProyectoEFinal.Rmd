@@ -49,5 +49,10 @@ t.test(lectura$How.many.books.did.you.read.during.last.12months.~lectura$Sex, al
 ¿Los audio libros son frecuentados por jovenes o personas mayores?
 ## pregunta 6
 ¿Las personas prefieren el periodico y el diario o libros electronicos?
-## pregunta 7
+## pregunta 7. Existe alguna diferencia entre los libros leidos de los casados con los solteros, y los divorciados?
+Prueba de Anova para esta pregunta y grafico plot.
+
+## pregunta 8. Influye el nivel de educación con respecto a si una persona lee o no?.
+
+
 ¿segun el nivel educativo las personas aumentan la cantidad de libros leidos durante todo el año?
