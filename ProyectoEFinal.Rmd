@@ -58,8 +58,13 @@ cor(lectura$How.many.books.did.you.read.during.last.12months., lectura$Age)
 ## pregunta 3
 ¿Una persona con empleo lee más que una desempleada?
 
-Ho. Si por que por razones laborales puede incrementar su lista de libros leídos.
-H1. no por que depende mas del tiempo que la persona tenga.
+Ho. No por que depende mas del tiempo que la persona tenga. (no hay relacion empleado = desempleado)
+H1. Si por que por razones laborales puede incrementar su lista de libros leídos. (hay relacion empleado =/= desempleado)
+
+```{r}
+ggplot(data = lectura, aes(x= Employement , y= How.many.books.did.you.read.during.last.12months., color= Employement))+ geom_boxplot()+theme_bw()
+```
+
 
 ## pregunta 4
 ¿Los ingresos son factor importante en el consumo de libros?
@@ -84,5 +89,6 @@ Prueba de Anova para esta pregunta y grafico plot.
 
 ## pregunta 8. Influye el nivel de educación con respecto a si una persona lee o no?.
 
+## Pregunta 9. Si los hombres leen mas el periodico que las mujeres. Existe difernecia?
 
 ¿segun el nivel educativo las personas aumentan la cantidad de libros leidos durante todo el año?
