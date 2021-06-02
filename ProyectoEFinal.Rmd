@@ -45,6 +45,16 @@ t.test(lectura$How.many.books.did.you.read.during.last.12months.~lectura$Sex, al
 Ho. no es relevante por que dependerá más de factores como el tiempo. 
 H1. si es relevante por que en base la edad se va incrementando la cantidad de libros leídos.
 
+```{r}
+plot(lectura$How.many.books.did.you.read.during.last.12months., lectura$Age,col="blue",main="Correlacion",xlab="Cantidad de libros x año",ylab="Edad")
+model <- lm(lectura$Age ~ lectura$How.many.books.did.you.read.during.last.12months.)
+abline(model,col="red")
+```
+```{r}
+cor(lectura$How.many.books.did.you.read.during.last.12months., lectura$Age)
+```
+### Respuesta. No influye la edad de la persona en la cantidad de libros leidos al año.
+
 ## pregunta 3
 ¿Una persona con empleo lee más que una desempleada?
 
