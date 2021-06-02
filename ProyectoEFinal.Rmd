@@ -25,7 +25,7 @@ library(lubridate)
 ```
 
 ## Pregunta 1. Si existe alguna diferencia entre hombres y mujeres y la cantidad de libros leidos durante todo el año.
-
+a
 H0: No hay diferencia, hombres = mujeres
 H1: Existe una diferencia, hombres =/= mujeres
 
