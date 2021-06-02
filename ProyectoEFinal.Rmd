@@ -24,7 +24,31 @@ library(tidyverse)
 library(lubridate)
 ```
 
-## Pregunta 1. Si existe alguna diferencia entre hombres y mujeres y la cantidad de libros leidos durante todo el año.
+## 1
+Explorando los datos
+
+```{r}
+summary(lectura)
+```
+### Tenemos distintas variables sin embargo los unicos enteros son la edad y la cantidad de libros leidos al año.
+
+## 2
+Promedio de libros al año
+
+```{r}
+summary(lectura$How.many.books.did.you.read.during.last.12months.)
+```
+```{r}
+hist(lectura$How.many.books.did.you.read.during.last.12months.,col="lightblue")
+medialib <- mean(lectura$How.many.books.did.you.read.during.last.12months.)
+
+abline(v=medialib,col="blue")
+
+medianlib <- median(lectura$How.many.books.did.you.read.during.last.12months.)
+abline(v=medianlib,col="red")
+```
+
+## Pregunta 3. Si existe alguna diferencia entre hombres y mujeres y la cantidad de libros leidos durante todo el año.
 a
 H0: No hay diferencia, hombres = mujeres
 H1: Existe una diferencia, hombres =/= mujeres
