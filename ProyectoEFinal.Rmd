@@ -6,7 +6,7 @@ output: word_document
 ---
 
 
-## 
+# Proyecto Final
 
 ```{r}
 lectura <- read.csv("HabitoLeer.csv")
