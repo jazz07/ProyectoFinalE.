@@ -39,4 +39,15 @@ t.test(lectura$How.many.books.did.you.read.during.last.12months.~lectura$Sex, al
 ```{r}
 5.147e-13 < 0.05
 ```
-
+## pregunta 2
+¿La edad influye en la cantidad de libros leidos durante todo el año?
+## pregunta 3
+¿Una persona con empleo lee más que una desempleada?
+## pregunta 4
+¿Los ingresos son factor importante en el consumo de libros?
+## pregunta 5
+¿Los audio libros son frecuentados por jovenes o personas mayores?
+## pregunta 6
+¿Las personas prefieren el periodico y el diario o libros electronicos?
+## pregunta 7
+¿segun el nivel educativo las personas aumentan la cantidad de libros leidos durante todo el año?
