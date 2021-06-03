@@ -47,8 +47,10 @@ abline(v=medialib,col="blue")
 medianlib <- median(lectura$How.many.books.did.you.read.during.last.12months.)
 abline(v=medianlib,col="red")
 ```
+### Respuesta. La media de libros leidos por año es de 16.68 y una mediana de 6 (de rojo), siendo más confiable la mediana en este tipo de casos porque hay un sesgo hacia la derecha en los datos.
 
-## Pregunta 3. Si existe alguna diferencia entre hombres y mujeres y la cantidad de libros leidos durante todo el año.
+## Pregunta 3. 
+Si existe alguna diferencia entre hombres y mujeres y la cantidad de libros leidos durante todo el año.
 a
 H0: No hay diferencia, hombres = mujeres
 H1: Existe una diferencia, hombres =/= mujeres
@@ -63,7 +65,9 @@ t.test(lectura$How.many.books.did.you.read.during.last.12months.~lectura$Sex, al
 ```{r}
 5.147e-13 < 0.05
 ```
-## pregunta 2
+### Respuesta.
+
+## pregunta 4
 ¿La edad influye en la cantidad de libros leidos durante todo el año?
 
 Ho. no es relevante por que dependerá más de factores como el tiempo. 
@@ -79,7 +83,7 @@ cor(lectura$How.many.books.did.you.read.during.last.12months., lectura$Age)
 ```
 ### Respuesta. No influye la edad de la persona en la cantidad de libros leidos al año.
 
-## pregunta 3
+## pregunta 5
 ¿Una persona con empleo lee más que una desempleada?
 
 Ho. No por que depende mas del tiempo que la persona tenga. (no hay relacion empleado = desempleado)
@@ -88,19 +92,58 @@ H1. Si por que por razones laborales puede incrementar su lista de libros leído
 ```{r}
 ggplot(data = lectura, aes(x= Employement , y= How.many.books.did.you.read.during.last.12months., color= Employement))+ geom_boxplot()+theme_bw()
 ```
+```{r}
+anova <- aov(lectura$How.many.books.did.you.read.during.last.12months.~lectura$Employement)
+summary(anova)
+```
+```{r}
+0.000325 < 0
+```
+### Respuesta. Si existe diferencia entre alguno de los grupos segun tengan empleo o no.
 
 
-## pregunta 4
+## pregunta 6
 ¿Los ingresos son factor importante en el consumo de libros?
 
-Ho. Si puesto que no se pueden adquirir todos los libros deseados sin tener ingresos suficientes.
-H1. No ya que podemos consumir libros de manera digital o bien libros en otras fuentes.
+Ho. No ya que podemos consumir libros de manera digital o bien libros en otras fuentes. (variables independientes)
+H1. Si puesto que no se pueden adquirir todos los libros deseados sin tener ingresos suficientes. (variables dependientes)
 
-## pregunta 5
+```{r}
+tab <- table(lectura$Incomes, lectura$Read.any.e.books.during.last.12months., dnn = c("Si leyo libros durante el año","Ingresos"))
+  tab
+```
+### Se ve que quienes tienen un ingreso de 100,00 por debajo de 150,000 dijeron haber leido algun libro al año diferencia que se contrapone con los que ganan menos de 10,000. Por tanto, desde aquí nos damos cuenta que los ingresos si son factor importante.
+
+
+```{r}
+mosaicplot(tab, main = deparse("Relacion entre leer libros y los ingresos"), color = c("orange","red","yellow","violet"))
+```
+```{r}
+chisq.test(tab)
+```
+
+```{r}
+2.2e-16 < 0.05
+```
+### Respuesta. Los ingresos si son un factor importante para el consumo de libros.
+
+## pregunta 7
 ¿Los audio libros son frecuentados por jovenes o personas mayores?
 
 Ho. Por ambos de una manera equitativa.
 H1. Por facilidad de uso y manejo asi que por personas mayores.
+
+```{r}
+tabLec <- table(lectura$Age, lectura$Read.any.audiobooks.during.last.12months., dnn = c("Edad","Respuesta si escucho algun audio libro en el a;o"))
+  tabLec
+```
+```{r}
+AgeAudB<- split(lectura$Age,lectura$Read.any.audiobooks.during.last.12months.)
+hist(AgeAudB$Yes, col = "yellow")
+```
+### Respuesta. Por personas mayores, segun nuestro grafico por personas entre los cuarenta y sesenta años mayoritariamente. Por tanto se rechaza la hipotesis nula, no hay equidad entre las edades y el hecho de escuchar audiolibros.
+
+
 
 ## pregunta 6
 ¿Las personas prefieren el periodico y el diario o libros electronicos?
