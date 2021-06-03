@@ -51,7 +51,7 @@ abline(v=medianlib,col="red")
 
 ## Pregunta 3. 
 Si existe alguna diferencia entre hombres y mujeres y la cantidad de libros leidos durante todo el año.
-a
+
 H0: No hay diferencia, hombres = mujeres
 H1: Existe una diferencia, hombres =/= mujeres
 
@@ -66,6 +66,8 @@ t.test(lectura$How.many.books.did.you.read.during.last.12months.~lectura$Sex, al
 5.147e-13 < 0.05
 ```
 ### Respuesta.
+H1: Existe una diferencia, hombres =/= mujeres
+https://elpais.com/cultura/2020/02/21/actualidad/1582288090_293986.html
 
 ## pregunta 4
 ¿La edad influye en la cantidad de libros leidos durante todo el año?
@@ -82,6 +84,7 @@ abline(model,col="red")
 cor(lectura$How.many.books.did.you.read.during.last.12months., lectura$Age)
 ```
 ### Respuesta. No influye la edad de la persona en la cantidad de libros leidos al año.
+https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2020/EstSociodemo/MOLEC2019_04.pdf
 
 ## pregunta 5
 ¿Una persona con empleo lee más que una desempleada?
@@ -100,6 +103,7 @@ summary(anova)
 0.000325 < 0
 ```
 ### Respuesta. Si existe diferencia entre alguno de los grupos segun tengan empleo o no.
+https://pruebat.org/Inicio/ConSesion/Breves/verBreve/1404-por-que-cada-vez-hay-menos-lectores
 
 
 ## pregunta 6
@@ -126,6 +130,7 @@ chisq.test(tab)
 2.2e-16 < 0.05
 ```
 ### Respuesta. Los ingresos si son un factor importante para el consumo de libros.
+https://www.comunidadbaratz.com/blog/6-de-cada-10-personas-prefieren-leer-libros-en-papel/
 
 ## pregunta 7
 ¿Los audio libros son frecuentados por jovenes o personas mayores?
@@ -142,6 +147,7 @@ AgeAudB<- split(lectura$Age,lectura$Read.any.audiobooks.during.last.12months.)
 hist(AgeAudB$Yes, col = "yellow")
 ```
 ### Respuesta. Por personas mayores, segun nuestro grafico por personas entre los cuarenta y sesenta años mayoritariamente. Por tanto se rechaza la hipotesis nula, no hay equidad entre las edades y el hecho de escuchar audiolibros.
+https://computerhoy.com/noticias/industria/quien-lee-mejor-dicho-escucha-audiolibros-espana-405851
 
 ## Pregunta 8.
 De acuerdo a la pregunta anterior, habra normalidad en esos datos?
@@ -174,6 +180,8 @@ summary(anova)
 0.221 < 0.05
 ```
 ### Respuesta.
+se rechaza la hipotesis nula por que si existe una diferencia entre los lectores y su estado civil.
+https://www.cronista.com/informacion-gral/Los-hombres-y-mujeres-casados-leen-menos-que-los-solteros-20120424-0052.html
 
 ## pregunta 10. 
 Influye el nivel educativo con respecto a si una persona lee o no?.
@@ -192,6 +200,10 @@ summary(anova2)
 2e-16 < 0
 ```
 ### Respuesta.
+Rechazamos la hipotesis nula y tomamos H1 por que si existe diferencia segun sea el nivel educativo.
+https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2020/EstSociodemo/MOLEC2019_04.pdf
+http://scielo.sld.cu/scielo.php?script=sci_arttext&pid=S2218-36202018000300180#:~:text=Por%20grupos%20de%20edad%20las,por%20conocer%20sobre%20alg%C3%BAn%20tema.
+
 
 ## Pregunta 11. 
 Los hombres leen mas el periodico que las mujeres?. Existe diferencia?
@@ -214,6 +226,9 @@ chisq.test(tabGen)
 0.04675 < 0.05
 ```
 ### Respuesta.
+No rechazamos H0 ya que no hay diferencia, la lectura de periodicos es independiente del genero.
+https://www.merca20.com/el-37-por-ciento-de-las-personas-que-tienen-entre-25-a-34-lee-mas-el-periodico/
+
 
 ### Pregunta 12
 ¿Existe una diferencia en el habito de leer segun la etnia de la persona?
@@ -232,6 +247,8 @@ summary(anova3)
 2e-07 < 0
 ```
 ### Respuesta. 
+No rechazamos h1 por que si existe una diferencia.
+https://revistasum.umanizales.edu.co/ojs/index.php/plumillaeducativa/article/view/1962/2625
 
 
 
