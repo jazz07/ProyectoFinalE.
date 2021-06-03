@@ -145,7 +145,20 @@ tabLec <- table(lectura$Age, lectura$Read.any.audiobooks.during.last.12months., 
 ```{r}
 AgeAudB<- split(lectura$Age,lectura$Read.any.audiobooks.during.last.12months.)
 hist(AgeAudB$Yes, col = "yellow")
+
+mediaAudB <- mean(AgeAudB$Yes)
+abline(v=mediaAudB,col="blue")
+
+medianAudB <- median(AgeAudB$Yes)
+abline(v=medianAudB,col="red")
 ```
+```{r}
+mediaAudB
+```
+```{r}
+medianAudB
+```
+
 ### Respuesta. Por personas mayores, segun nuestro grafico por personas entre los cuarenta y sesenta años mayoritariamente. Por tanto se rechaza la hipotesis nula, no hay equidad entre las edades y el hecho de escuchar audiolibros.
 https://computerhoy.com/noticias/industria/quien-lee-mejor-dicho-escucha-audiolibros-espana-405851
 
@@ -247,11 +260,32 @@ summary(anova3)
 2e-07 < 0
 ```
 ### Respuesta. 
-No rechazamos h1 por que si existe una diferencia.
+Se afirma h1 por que si existe una diferencia. Se rechaza h0.
 https://revistasum.umanizales.edu.co/ojs/index.php/plumillaeducativa/article/view/1962/2625
 
 ##pregunta 13
 ¿la edad es un factor importante en la lectura de revistas o diarios?
+
+```{r}
+tabMg <- table(lectura$Age, lectura$Do.you.happen.to.read.any.magazines.or.journals., dnn = c("Edad","Revistas o Diarios"))
+  tabMg
+```
+```{r}
+AgeRev<- split(lectura$Age,lectura$Do.you.happen.to.read.any.magazines.or.journals.)
+hist(AgeRev$Yes, col = "orange")
+mediaRev <- mean(AgeRev$Yes)
+abline(v=mediaRev,col="blue")
+
+medianRev <- median(AgeRev$Yes)
+abline(v=medianRev,col="green")
+```
+```{r}
+mediaRev
+
+```
+```{r}
+medianRev
+```
 //según lo que encontre los jovenes leen más que los ancianos asi que no es un factor importante tambien. aqui te dejo el link de igual forma
 
 https://lapiedradesisifo.com/2016/04/27/los-millennials-leen-mas-que-los-mayores-de-30-anos/
@@ -259,12 +293,53 @@ https://lapiedradesisifo.com/2016/04/27/los-millennials-leen-mas-que-los-mayores
 
 ##pregunta 14
 ¿Según el tipo de empleo de la persona aumenta el consumo de los libros electronicos?
-//segun lo encontrado lo prefieren por la comodidad. adjunto link
+
+Ho= Son variables independientes una de la otra
+(no hay relacion)
+H1 = no son variables independientes (si hay relacion)
+
+```{r}
+tabE <- table(lectura$Employement, lectura$Read.any.e.books.during.last.12months., dnn = c("Eboks","Empleo"))
+  tabE
+```
+```{r}
+mosaicplot(tabE, main = deparse("Relacion entre leer libros electronicos y el empleo"), color = c("lightblue","pink","yellow","violet"))
+```
+### Se puede apreciar que hay mayor consumo de libros electronicos en personas que tienen un empleo a tiempo completo, asi que suponemos esto se debe a las facilidades que adquisicion de este tipo o modalidad de libros.
+
+```{r}
+chisq.test(tabE)
+```
+```{r}
+5.428e-12 < 0.05
+```
+### Respuesta. De acuerdo a lo que se puede ver en el grafico y la prueba de chi cuadrado, podermos decir que el consumo de libros electronicos si esta relacionado con el estatus de empleo que se tenga; por lo tanto se rechaza la hipotesis nula. Respondiendo a nuestra pregunta principal tenemos: segun lo encontrado lo prefieren por la comodidad. adjunto link
 http://www.revistaespacios.com/a18v39n43/a18v39n43p36.pdf
 
 ##pregunta 15
 ¿en base a la edad las personas prefieren leer solamente noticias en periodicos o diarios?
-// por comodiad tambien.
+
+```{r}
+tabP <- table(lectura$Age, lectura$Do.you.happen.to.read.any.daily.news.or.newspapers., dnn = c("Edad","Revistas o Diarios"))
+  tabP
+```
+```{r}
+AgePer<- split(lectura$Age,lectura$Do.you.happen.to.read.any.daily.news.or.newspapers.)
+hist(AgePer$Yes, col = "pink")
+mediaPer <- mean(AgePer$Yes)
+abline(v=mediaPer,col="blue")
+
+medianPer <- median(AgePer$Yes)
+abline(v=medianPer,col="red")
+```
+```{r}
+mediaPer
+```
+```{r}
+medianPer
+```
+
+### Respuesta. por comodiad tambien.
 https://www.larepublica.co/internet-economy/siete-de-cada-10-colombianos-aun-prefiere-leer-los-periodicos-impresos-2364096
 
 
