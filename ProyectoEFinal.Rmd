@@ -200,13 +200,6 @@ H0. No hay diferencia, la lectura de periodicos es independiente del genero
 H1. Si hay diferencia
 
 
-
-## pregunta 6
-¿Las personas prefieren el periodico y el diario o libros electronicos?
-
-Ho. Por falta de actualización las personas prefieren el periodico de manera física.
-H1. Por facil manejo y uso los libros electronicos.
-
 ```{r}
 tabGen <- table(lectura$Sex, lectura$Do.you.happen.to.read.any.daily.news.or.newspapers., dnn = c("Lectura de periodicos","genero"))
   tabGen
@@ -240,6 +233,6 @@ summary(anova3)
 ```
 ### Respuesta. 
 
-## pregunta 8. Influye el nivel de educación con respecto a si una persona lee o no?.
+
 
 
