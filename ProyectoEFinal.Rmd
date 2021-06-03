@@ -143,6 +143,62 @@ hist(AgeAudB$Yes, col = "yellow")
 ```
 ### Respuesta. Por personas mayores, segun nuestro grafico por personas entre los cuarenta y sesenta años mayoritariamente. Por tanto se rechaza la hipotesis nula, no hay equidad entre las edades y el hecho de escuchar audiolibros.
 
+## Pregunta 8.
+De acuerdo a la pregunta anterior, habra normalidad en esos datos?
+
+H0. Hay normalidad en los datos.
+H1. No hay normalidad (existe sesgo).
+
+```{r}
+shapiro.test(AgeAudB$Yes)
+```
+```{r}
+1.02e-05 < 0.05
+```
+### Respuesta 2. Al buscar si hay normalidad en estos datos, nos damos cuenta que no la hay. Existe un sesgo hacia la derecha, señalando una mayoria de este lado, lo que quiere decir es que las personas que dijeron que si escuchan audiolibros son de edades despues de los 40 en su mayoria. Aunque hay una baja significativa despues de los 60s. Por lo tanto, se rechaza la hipotesis nula.
+
+## pregunta 9. 
+Existe alguna diferencia entre los libros leidos de los casados con los solteros, y los divorciados?
+
+H0. No hay diferencia
+H1. Si hay diferencia en la media de cada grupo
+
+```{r}
+ggplot(data = lectura, aes(x= Marital.status. , y= How.many.books.did.you.read.during.last.12months., color= Marital.status.))+ geom_boxplot()+theme_bw()
+```
+```{r}
+anova <- aov(lectura$How.many.books.did.you.read.during.last.12months.~lectura$Marital.status.)
+summary(anova)
+```
+```{r}
+0.221 < 0.05
+```
+### Respuesta.
+
+## pregunta 10. 
+Influye el nivel educativo con respecto a si una persona lee o no?.
+
+H0. No influye, hay equidad en los grupos.
+H1. Si influye, hay diferencia segun sea el nivel educativo.
+
+```{r}
+ggplot(data = lectura, aes(x= Education , y= How.many.books.did.you.read.during.last.12months., color= Education))+ geom_boxplot()+theme_bw()
+```
+```{r}
+anova2 <- aov(lectura$How.many.books.did.you.read.during.last.12months.~lectura$Education)
+summary(anova2)
+```
+```{r}
+2e-16 < 0
+```
+### Respuesta.
+
+## Pregunta 11. 
+Los hombres leen mas el periodico que las mujeres?. Existe diferencia?
+
+H0. No hay diferencia, la lectura de periodicos es independiente del genero 
+H1. Si hay diferencia
+
 
 
 ## pregunta 6
@@ -151,11 +207,39 @@ hist(AgeAudB$Yes, col = "yellow")
 Ho. Por falta de actualización las personas prefieren el periodico de manera física.
 H1. Por facil manejo y uso los libros electronicos.
 
-## pregunta 7. Existe alguna diferencia entre los libros leidos de los casados con los solteros, y los divorciados?
-Prueba de Anova para esta pregunta y grafico plot.
+```{r}
+tabGen <- table(lectura$Sex, lectura$Do.you.happen.to.read.any.daily.news.or.newspapers., dnn = c("Lectura de periodicos","genero"))
+  tabGen
+```
+```{r}
+mosaicplot(tabGen, main = deparse("Relacion entre la lectura de periodicos y el genero"), color = c("yellow","violet"))
+```
+```{r}
+chisq.test(tabGen)
+```
+```{r}
+0.04675 < 0.05
+```
+### Respuesta.
+
+### Pregunta 12
+¿Existe una diferencia en el habito de leer segun la etnia de la persona?
+
+H0. No hay diferencia
+H1. Existe una diferencia 
+
+```{r}
+ggplot(data = lectura, aes(x= Race , y= How.many.books.did.you.read.during.last.12months., color= Race))+ geom_boxplot()+theme_bw()
+```
+```{r}
+anova3 <- aov(lectura$How.many.books.did.you.read.during.last.12months.~lectura$Race)
+summary(anova3)
+```
+```{r}
+2e-07 < 0
+```
+### Respuesta. 
 
 ## pregunta 8. Influye el nivel de educación con respecto a si una persona lee o no?.
 
-## Pregunta 9. Los hombres leen mas el periodico que las mujeres?. Existe difernecia?
 
-¿segun el nivel educativo las personas aumentan la cantidad de libros leidos durante todo el año?
