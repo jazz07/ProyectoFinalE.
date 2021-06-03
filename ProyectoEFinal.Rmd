@@ -250,6 +250,22 @@ summary(anova3)
 No rechazamos h1 por que si existe una diferencia.
 https://revistasum.umanizales.edu.co/ojs/index.php/plumillaeducativa/article/view/1962/2625
 
+##pregunta 13
+¿la edad es un factor importante en la lectura de revistas o diarios?
+//según lo que encontre los jovenes leen más que los ancianos asi que no es un factor importante tambien. aqui te dejo el link de igual forma
+
+https://lapiedradesisifo.com/2016/04/27/los-millennials-leen-mas-que-los-mayores-de-30-anos/
+
+
+##pregunta 14
+¿Según el tipo de empleo de la persona aumenta el consumo de los libros electronicos?
+//segun lo encontrado lo prefieren por la comodidad. adjunto link
+http://www.revistaespacios.com/a18v39n43/a18v39n43p36.pdf
+
+##pregunta 15
+¿en base a la edad las personas prefieren leer solamente noticias en periodicos o diarios?
+// por comodiad tambien.
+https://www.larepublica.co/internet-economy/siete-de-cada-10-colombianos-aun-prefiere-leer-los-periodicos-impresos-2364096
 
 
 
