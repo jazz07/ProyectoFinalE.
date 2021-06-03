@@ -343,4 +343,7 @@ medianPer
 https://www.larepublica.co/internet-economy/siete-de-cada-10-colombianos-aun-prefiere-leer-los-periodicos-impresos-2364096
 
 
+```{r}
+lunar <- read.csv("lunar.csv")
+```
 
