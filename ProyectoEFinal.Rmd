@@ -22,6 +22,7 @@ library(ggplot2)
 library(dplyr)
 library(tidyverse)
 library(lubridate)
+library(fpp2)
 ```
 
 ## 1
@@ -343,7 +344,125 @@ medianPer
 https://www.larepublica.co/internet-economy/siete-de-cada-10-colombianos-aun-prefiere-leer-los-periodicos-impresos-2364096
 
 
+## Serie de tiempo de las reseñas de los libros más vendidos de amazon desde el 2009 al 2020
+
 ```{r}
-lunar <- read.csv("lunar.csv")
+AmazonBooks <- read.csv("AmazonBooks - Sheet1.csv")
 ```
+
+```{r}
+best2 = ts(AmazonBooks$Reviews, start =  2009, end = 2020, frequency = 12)
+best2
+```
+```{r}
+autoplot(best2)+ 
+  labs(title = "Serie de tiempo",
+  x = "Reseñas",
+  y = "dato",
+colour = "#00a0dc")
+theme_bw()
+```
+### Segun lo que podemos ver en la grafica hubo un periodo de mayor intesidad con respecto a las reseñas en el año 2012, y otro en el 2018, sin embargo los otros años se mantuvo de alguna forma estable y algo bajo el numero de reseñas escritas en Amazon.
+
+## Descomposicion de serie de tiempo
+
+```{r}
+D <- decompose(best2, type = 'additive')
+
+autoplot(D)+
+  labs(title= "Descomposicion de la serie de tiempo", 
+     x= "tiempo",
+     y = "dato",
+     colour = "Gears")+
+  theme_bw()
+```
+### Tendencia
+
+```{r}
+autoplot(best2, series="Serie tiempo") + 
+    autolayer(trendcycle(D), series="Tendencia") +
+    labs(title = "Serie de tiempo",      
+       x = "Tiempo",
+       y = "Valor"
+       ) + 
+    theme_bw()
+```
+### Para ver estacionalidad 
+
+```{r}
+ggseasonplot(best2)
+```
+## Pronostico de la Serie de Tiempo
+
+### Método holt winters
+
+```{r}
+# elaborando el pronostico
+most <- hw(best2, h=24, seasonal = 'additive')
+
+```
+
+```{r}
+# graficando el pronóstico
+autoplot(most)
+```
+
+```{r}
+# verificando el ajuste del método
+autoplot(most)+autolayer(fitted(most), series="Ajuste")
+```
+
+```{r}
+# verificando los residuales
+checkresiduals(most)
+```
+
+
+### Método Arima
+
+```{r}
+# elaborando el modelo ARIMA
+modeloAr <- auto.arima(best2)
+
+```
+
+```{r}
+# elaborando el pronostico
+most2 <- forecast(modeloAr, h=24)
+```
+
+```{r}
+# graficando el pronóstico
+autoplot(most2)
+
+```
+
+```{r}
+# verificando el ajuste del método
+autoplot(most2)+autolayer(fitted(most2), series="Ajuste")
+```
+
+```{r}
+# verificando los residuales
+checkresiduals(most2)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
