@@ -447,6 +447,10 @@ autoplot(most2)+autolayer(fitted(most2), series="Ajuste")
 checkresiduals(most2)
 ```
 
+##adjuntamos links sobre el porque amazon hace reseñas sobre sus productos.
+https://sellercentral.amazon.com.mx/gp/help/external/201972160?language=es_MX&ref=efph_201972160_cont_201972140#:~:text=Amazon%20muestra%20las%20rese%C3%B1as%20de,hora%20de%20comprar%20un%20producto.
+
+https://sellercentral.amazon.es/gp/help/external/201972160?language=es_ES&ref=efph_201972160_cont_201972140
 
 
 
